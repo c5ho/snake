@@ -7,7 +7,7 @@ console.log("Connecting ...");
 //returns an object to 'conn', a composite object that includes everything that 
 //was returned from client.js and then assigned to the conn object
 
-setupInput(connect());
+setupInput(connect());  //passing the conn object returned from connect() to setupInput
 
 
 //let apples connect();
