@@ -2,7 +2,7 @@ const net = require("net");
 
 // establishes a connection with the game server
 const credentials = { 
-  host: 'localhost', //165.227.47.243
+  host: '165.227.47.243', //165.227.47.243
   port: 50541
 }
 
@@ -24,6 +24,4 @@ const connect = function () {
   return conn;
 };
 
-module.exports = {
-  connect,
-};
+module.exports = connect;

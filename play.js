@@ -1,40 +1,16 @@
-const { connect } = require('./client');
-
-// const apples = connect(); //connect() is a function invocation
-//                         //executes connect() from client.js
-//                         //returns an object to apples
-// console.log(apples); //this shows the composite object that 
-//                       //includes everything that was returned 
-//                       //from client.js and then assigned to 
-//                       //the apples object
+const { appendFileSync } = require('fs');
+const connect = require('./client');
+const setupInput = require('./input');
 
 console.log("Connecting ...");
-const apples = connect();
+//connect() is a function invocation, executes connect() from client.js
+//returns an object to 'conn', a composite object that includes everything that 
+//was returned from client.js and then assigned to the conn object
 
-// setup interface to handle user input from stdin
-
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  stdin.on("data", handleUserInput);  
-  return stdin;
-};
-
-const handleUserInput = function (key) {
-  // \u0003 maps to ctrl+c input
-  if (key === '\u0003') {
-    process.exit();
-  }
-}
+setupInput(connect());
 
 
-  
-setupInput();
-
-
-
+//let apples connect();
 // apples.write('Move: up');
 // setInterval(() => {
 //   apples.write('Move: up');
